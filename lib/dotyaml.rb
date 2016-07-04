@@ -9,7 +9,6 @@ module Dotyaml
     def initialize(manifests, config)
       @manifests = manifests
       @config = HashWithIndifferentAccess.new(config)
-      p @config
     end
 
     def setup
