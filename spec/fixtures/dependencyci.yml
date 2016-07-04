@@ -1,23 +1,28 @@
+# don't run removed test on any dependencies
+tests:
+  removed: skip
+
+# don't run unmaintained test on any dependencies in Gemfile
 files:
   Gemfile:
     tests:
-      unmaintained: :skip
+      unmaintained: skip
 
-tests:
-  removed: :skip
-
+# don't run deprecated test on any dependencies from Rubygems
 platform:
-  "Rubygems":
+  Rubygems:
     tests:
-      deprecated: :skip
+      deprecated: skip
 
+# don't run outdated test on any dependencies called rails from Rubygems
 platform:
-  "Rubygems"
+  Rubygems:
     rails:
       tests:
-        deprecated: :skip
+        outdated: skip
 
+# don't run unlicensed test on any development dependencies
 type:
   development:
-    test:
-      unlicensed: :skip
+    tests:
+      unlicensed: skip
