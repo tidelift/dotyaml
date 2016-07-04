@@ -1,0 +1,23 @@
+files:
+  Gemfile:
+    tests:
+      unmaintained: :skip
+
+tests:
+  removed: :skip
+
+platform:
+  "Rubygems":
+    tests:
+      deprecated: :skip
+
+platform:
+  "Rubygems"
+    rails:
+      tests:
+        deprecated: :skip
+
+type:
+  development:
+    test:
+      unlicensed: :skip
