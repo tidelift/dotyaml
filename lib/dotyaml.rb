@@ -74,7 +74,8 @@ module Dotyaml
         :deprecated   => "fail",
         :unmaintained => "fail",
         :unlicensed   => "fail",
-        :outdated     => "warn"
+        :outdated     => "warn",
+        :busfactor    => "warn"
       }
     end
   end
