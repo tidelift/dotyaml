@@ -46,19 +46,19 @@ module Dotyaml
       should_run = test_name_config if test_name_config
 
       # type
-      type_config = config.fetch('type', {}).fetch(dependency[:type], {}).fetch('tests', {}).fetch(test_name, nil)
+      type_config = config.fetch('types', {}).fetch(dependency[:type], {}).fetch('tests', {}).fetch(test_name, nil)
       should_run = type_config if type_config
 
       # filename
-      filename_config = config.fetch(remove_tmp_path(manifest[:path]), {}).fetch('tests', {}).fetch(test_name, nil)
+      filename_config = config.fetch('files', {}).fetch(remove_tmp_path(manifest[:path]), {}).fetch('tests', {}).fetch(test_name, nil)
       should_run = filename_config if filename_config
 
       # platform
-      platform_config = config.fetch(manifest[:platform], {}).fetch('tests', {}).fetch(test_name, nil)
+      platform_config = config.fetch('platforms', {}).fetch(manifest[:platform], {}).fetch('tests', {}).fetch(test_name, nil)
       should_run = platform_config if platform_config
 
       # project name
-      project_config = config.fetch(manifest[:platform], {}).fetch(dependency[:name], {}).fetch('tests', {}).fetch(test_name, nil)
+      project_config = config.fetch('platforms', {}).fetch(manifest[:platform], {}).fetch(dependency[:name], {}).fetch('tests', {}).fetch(test_name, nil)
       should_run = project_config if project_config
 
       [test_name, should_run.to_s]
@@ -74,8 +74,7 @@ module Dotyaml
         :deprecated   => "fail",
         :unmaintained => "fail",
         :unlicensed   => "fail",
-        :outdated     => "warn",
-        :busfactor    => "warn"
+        :outdated     => "warn"
       }
     end
   end

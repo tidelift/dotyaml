@@ -9,20 +9,20 @@ files:
       unmaintained: skip
 
 # don't run deprecated test on any dependencies from Rubygems
-platform:
+platforms:
   Rubygems:
     tests:
       deprecated: skip
 
 # don't run outdated test on any dependencies called rails from Rubygems
-platform:
+platforms:
   Rubygems:
     rails:
       tests:
         outdated: skip
 
 # don't run unlicensed test on any development dependencies
-type:
+types:
   development:
     tests:
       unlicensed: skip

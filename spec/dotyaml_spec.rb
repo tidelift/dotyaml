@@ -58,7 +58,7 @@ describe Dotyaml do
   end
 
   it 'skips all of one kind of test for a file' do
-    config = {"Gemfile"=>{"tests"=>{"removed"=>:skip}}}
+    config = {"files"=> {"Gemfile"=>{"tests"=>{"removed"=>"skip"}}}}
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
@@ -77,7 +77,7 @@ describe Dotyaml do
   end
 
   it 'skips all of one kind of test for a platform' do
-    config = {"Rubygems"=>{"tests"=>{"removed"=>:skip}}}
+    config = {"platforms"=>{"Rubygems"=>{"tests"=>{"removed"=>"skip"}}}}
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
@@ -96,7 +96,7 @@ describe Dotyaml do
   end
 
   it 'skips all of one kind of test for a project' do
-    config = {"Rubygems"=>{"rails" => {"tests"=>{"removed"=>:skip}}}}
+    config = {"platforms" => {"Rubygems"=>{"rails" => {"tests"=>{"removed"=>"skip"}}}}}
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
@@ -115,7 +115,7 @@ describe Dotyaml do
   end
 
   it 'skips all of one kind of test for a runtime' do
-    config = {"type"=>{"runtime" => {"tests"=>{"removed"=>:skip}}}}
+    config = {"types"=>{"runtime" => {"tests"=>{"removed"=>"skip"}}}}
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
