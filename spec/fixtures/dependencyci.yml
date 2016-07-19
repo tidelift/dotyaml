@@ -26,3 +26,8 @@ types:
   development:
     tests:
       unlicensed: skip
+
+type:
+  development:
+    tests:
+      unmaintained: skip

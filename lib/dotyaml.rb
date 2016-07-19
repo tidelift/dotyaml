@@ -47,6 +47,10 @@ module Dotyaml
       should_run = test_name_config if test_name_config
 
       # type
+      type_config = config.fetch('type', {}).fetch(dependency['type'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)
+      should_run = type_config if type_config
+
+      # types
       type_config = config.fetch('types', {}).fetch(dependency['type'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)
       should_run = type_config if type_config
 

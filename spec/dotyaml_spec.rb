@@ -152,4 +152,25 @@ describe Dotyaml do
               :unlicensed=>"fail",
               :outdated=>"warn"}}]}])
   end
+
+  it 'work with type or types' do
+    config = {"type"=>{"development"=>{"tests"=>{"unmaintained"=>"skip"}}}}
+    manifests = [{:platform=>"NPM", :path=>"tmp/1160/package.json",:dependencies=>[{:name=>"grunt-usemin", :requirement=>"~2.0.0", :type=>"development"}]}]
+    tester = Dotyaml::Test.new(manifests, config)
+    expect(tester.setup).to eq([
+       {
+         :platform=>"NPM",
+         :path=>"tmp/1160/package.json",
+         :dependencies=>
+          [{:name=>"grunt-usemin",
+            :requirement=>"~2.0.0",
+            :type=>'development',
+            :tests=>
+             {:removed=>"fail",
+              :deprecated=>"fail",
+              :unmaintained=>"skip",
+              :unlicensed=>"fail",
+              :outdated=>"warn"}}]}])
+  end
+
 end
