@@ -114,7 +114,7 @@ describe Dotyaml do
               :outdated=>"warn"}}]}])
   end
 
-  it 'skips all of one kind of test for a runtime' do
+  it 'skips all of one kind of test for a type' do
     config = {"types"=>{"runtime" => {"tests"=>{"removed"=>"skip"}}}}
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
@@ -128,6 +128,26 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
+              :unmaintained=>"fail",
+              :unlicensed=>"fail",
+              :outdated=>"warn"}}]}])
+  end
+
+  it 'is insenstive to case and string/symbols' do
+    config = {"platforms"=>{"npm"=>{"jade"=>{"tests"=>{"deprecated"=>"skip"}}}}}
+    manifests = [{:platform=>"NPM", :path=>"tmp/1160/npm-shrinkwrap.json",:dependencies=>[{:name=>"jade", :requirement=>"0.26.3", :type=>"runtime"}]}]
+    tester = Dotyaml::Test.new(manifests, config)
+    expect(tester.setup).to eq([
+       {
+         :platform=>"NPM",
+         :path=>"tmp/1160/npm-shrinkwrap.json",
+         :dependencies=>
+          [{:name=>"jade",
+            :requirement=>"0.26.3",
+            :type=>'runtime',
+            :tests=>
+             {:removed=>"fail",
+              :deprecated=>"skip",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn"}}]}])
