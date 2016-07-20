@@ -59,8 +59,16 @@ module Dotyaml
       should_run = filename_config if filename_config
 
       # platform
+      platform_config = config.fetch('platform', {}).fetch(manifest['platform'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)
+      should_run = platform_config if platform_config
+
+      # platforms
       platform_config = config.fetch('platforms', {}).fetch(manifest['platform'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)
       should_run = platform_config if platform_config
+
+      # project name
+      project_config = config.fetch('platform', {}).fetch(manifest['platform'].to_s.downcase, {}).fetch(dependency['name'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)
+      should_run = project_config if project_config
 
       # project name
       project_config = config.fetch('platforms', {}).fetch(manifest['platform'].to_s.downcase, {}).fetch(dependency['name'].to_s.downcase, {}).fetch('tests', {}).fetch(test_name_key, nil)

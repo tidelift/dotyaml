@@ -173,4 +173,23 @@ describe Dotyaml do
               :outdated=>"warn"}}]}])
   end
 
+  it 'work with platform or platforms' do
+    config = {"platform" => {"Rubygems"=>{"rails" => {"tests"=>{"removed"=>"skip"}}}}}
+    tester = Dotyaml::Test.new(manifests, config)
+    expect(tester.setup).to eq([
+       {
+         :platform=>"Rubygems",
+         :path=>"tmp/125/Gemfile",
+         :dependencies=>
+          [{:name=>"rails",
+            :requirement=>"= 4.2.6",
+            :type=>:runtime,
+            :tests=>
+             {:removed=>"skip",
+              :deprecated=>"fail",
+              :unmaintained=>"fail",
+              :unlicensed=>"fail",
+              :outdated=>"warn"}}]}])
+
+  end
 end
