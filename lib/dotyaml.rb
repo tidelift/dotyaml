@@ -78,7 +78,8 @@ module Dotyaml
     end
 
     def remove_tmp_path(manifest_path)
-      manifest_path.match(/tmp\/\d+\/(.+)/)[1]
+      match = manifest_path.match(/tmp\/\d+\/(.+)/)
+      match ? match[1] : manifest_path
     end
 
     def tests

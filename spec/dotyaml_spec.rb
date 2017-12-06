@@ -192,4 +192,36 @@ describe Dotyaml do
               :outdated=>"warn"}}]}])
 
   end
+
+  it "works when path isn't in tmp" do
+    manifests = [
+      {
+        :platform=>"Rubygems",
+        :path=>"Gemfile",
+        :dependencies=>[
+          {
+            :name=>"rails",
+            :requirement=>"= 4.2.6",
+            :type=>:runtime
+          }
+        ]
+      }
+    ]
+
+    tester = Dotyaml::Test.new(manifests, {})
+    expect(tester.setup).to eq([
+       {
+         :platform=>"Rubygems",
+         :path=>"Gemfile",
+         :dependencies=>
+          [{:name=>"rails",
+            :requirement=>"= 4.2.6",
+            :type=>:runtime,
+            :tests=>
+             {:removed=>"fail",
+              :deprecated=>"fail",
+              :unmaintained=>"fail",
+              :unlicensed=>"fail",
+              :outdated=>"warn"}}]}])
+  end
 end
