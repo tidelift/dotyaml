@@ -35,7 +35,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test' do
@@ -54,7 +55,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a file' do
@@ -73,7 +75,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a platform' do
@@ -92,7 +95,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a project' do
@@ -111,7 +115,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a type' do
@@ -130,8 +135,30 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
+
+
+    it 'supports skipping vulnerable test types' do
+      config = {"types"=>{"runtime" => {"tests"=>{"vulnerable"=>"skip"}}}}
+      tester = Dotyaml::Test.new(manifests, config)
+      expect(tester.setup).to eq([
+         {
+           :platform=>"Rubygems",
+           :path=>"tmp/125/Gemfile",
+           :dependencies=>
+            [{:name=>"rails",
+              :requirement=>"= 4.2.6",
+              :type=>:runtime,
+              :tests=>
+               {:removed=>"fail",
+                :deprecated=>"fail",
+                :unmaintained=>"fail",
+                :unlicensed=>"fail",
+                :outdated=>"warn",
+                :vulnerable=>"skip"}}]}])
+    end
 
   it 'is insenstive to case and string/symbols' do
     config = {"platforms"=>{"npm"=>{"jade"=>{"tests"=>{"deprecated"=>"skip"}}}}}
@@ -150,7 +177,8 @@ describe Dotyaml do
               :deprecated=>"skip",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'work with type or types' do
@@ -170,7 +198,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"skip",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 
   it 'work with platform or platforms' do
@@ -189,7 +218,8 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
 
   end
 
@@ -222,6 +252,7 @@ describe Dotyaml do
               :deprecated=>"fail",
               :unmaintained=>"fail",
               :unlicensed=>"fail",
-              :outdated=>"warn"}}]}])
+              :outdated=>"warn",
+              :vulnerable=>"fail"}}]}])
   end
 end
