@@ -88,7 +88,8 @@ module Dotyaml
         :deprecated   => "fail",
         :unmaintained => "fail",
         :unlicensed   => "fail",
-        :outdated     => "warn"
+        :outdated     => "warn",
+        :vulnerable   => "fail"
       }
     end
   end
