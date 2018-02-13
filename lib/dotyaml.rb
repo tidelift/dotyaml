@@ -21,6 +21,7 @@ module Dotyaml
       {
         :platform => manifest['platform'],
         :path => manifest['path'],
+        :kind => manifest['kind'],
         :dependencies => manifest['dependencies'].map do |dependency|
           map_dependency(manifest, dependency)
         end

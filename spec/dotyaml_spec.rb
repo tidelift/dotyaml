@@ -5,6 +5,7 @@ describe Dotyaml do
     {
       :platform=>"Rubygems",
       :path=>"tmp/125/Gemfile",
+      :kind=>"manifest",
       :dependencies=>[
         {
           :name=>"rails",
@@ -26,6 +27,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -46,6 +48,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -66,6 +69,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -86,6 +90,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -106,6 +111,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -126,6 +132,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -147,6 +154,7 @@ describe Dotyaml do
          {
            :platform=>"Rubygems",
            :path=>"tmp/125/Gemfile",
+           :kind=>"manifest",
            :dependencies=>
             [{:name=>"rails",
               :requirement=>"= 4.2.6",
@@ -162,12 +170,13 @@ describe Dotyaml do
 
   it 'is insenstive to case and string/symbols' do
     config = {"platforms"=>{"npm"=>{"jade"=>{"tests"=>{"deprecated"=>"skip"}}}}}
-    manifests = [{:platform=>"NPM", :path=>"tmp/1160/npm-shrinkwrap.json",:dependencies=>[{:name=>"jade", :requirement=>"0.26.3", :type=>"runtime"}]}]
+    manifests = [{:platform=>"NPM", :path=>"tmp/1160/npm-shrinkwrap.json", :kind=>"manifest", :dependencies=>[{:name=>"jade", :requirement=>"0.26.3", :type=>"runtime"}]}]
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
          :platform=>"NPM",
          :path=>"tmp/1160/npm-shrinkwrap.json",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"jade",
             :requirement=>"0.26.3",
@@ -183,12 +192,13 @@ describe Dotyaml do
 
   it 'work with type or types' do
     config = {"type"=>{"development"=>{"tests"=>{"unmaintained"=>"skip"}}}}
-    manifests = [{:platform=>"NPM", :path=>"tmp/1160/package.json",:dependencies=>[{:name=>"grunt-usemin", :requirement=>"~2.0.0", :type=>"development"}]}]
+    manifests = [{:platform=>"NPM", :path=>"tmp/1160/package.json", :kind=>"manifest", :dependencies=>[{:name=>"grunt-usemin", :requirement=>"~2.0.0", :type=>"development"}]}]
     tester = Dotyaml::Test.new(manifests, config)
     expect(tester.setup).to eq([
        {
          :platform=>"NPM",
          :path=>"tmp/1160/package.json",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"grunt-usemin",
             :requirement=>"~2.0.0",
@@ -209,6 +219,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"tmp/125/Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
@@ -228,6 +239,7 @@ describe Dotyaml do
       {
         :platform=>"Rubygems",
         :path=>"Gemfile",
+        :kind=>"manifest",
         :dependencies=>[
           {
             :name=>"rails",
@@ -243,6 +255,7 @@ describe Dotyaml do
        {
          :platform=>"Rubygems",
          :path=>"Gemfile",
+         :kind=>"manifest",
          :dependencies=>
           [{:name=>"rails",
             :requirement=>"= 4.2.6",
