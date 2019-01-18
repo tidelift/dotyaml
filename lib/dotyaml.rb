@@ -90,7 +90,8 @@ module Dotyaml
         :unmaintained => "fail",
         :unlicensed   => "fail",
         :outdated     => "warn",
-        :vulnerable   => "fail"
+        :vulnerable   => "fail",
+        :broken       => "fail"
       }
     end
   end
