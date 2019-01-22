@@ -38,7 +38,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test' do
@@ -59,7 +60,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a file' do
@@ -80,7 +82,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a platform' do
@@ -101,7 +104,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a project' do
@@ -122,7 +126,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'skips all of one kind of test for a type' do
@@ -143,7 +148,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
 
@@ -165,7 +171,8 @@ describe Dotyaml do
                 :unmaintained=>"fail",
                 :unlicensed=>"fail",
                 :outdated=>"warn",
-                :vulnerable=>"skip"}}]}])
+                :vulnerable=>"skip",
+                :broken=>"fail"}}]}])
     end
 
   it 'is insenstive to case and string/symbols' do
@@ -187,7 +194,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'work with type or types' do
@@ -209,7 +217,8 @@ describe Dotyaml do
               :unmaintained=>"skip",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 
   it 'work with platform or platforms' do
@@ -230,7 +239,8 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
 
   end
 
@@ -266,6 +276,7 @@ describe Dotyaml do
               :unmaintained=>"fail",
               :unlicensed=>"fail",
               :outdated=>"warn",
-              :vulnerable=>"fail"}}]}])
+              :vulnerable=>"fail",
+              :broken=>"fail"}}]}])
   end
 end
