@@ -35,7 +35,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"fail",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -57,7 +57,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -79,7 +79,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -101,7 +101,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -123,7 +123,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -145,7 +145,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -168,7 +168,7 @@ describe Dotyaml do
               :tests=>
                {:removed=>"fail",
                 :deprecated=>"fail",
-                :unmaintained=>"fail",
+                :unmaintained=>"warn",
                 :unlicensed=>"fail",
                 :outdated=>"warn",
                 :vulnerable=>"skip",
@@ -191,7 +191,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"fail",
               :deprecated=>"skip",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -236,7 +236,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"skip",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
@@ -273,7 +273,7 @@ describe Dotyaml do
             :tests=>
              {:removed=>"fail",
               :deprecated=>"fail",
-              :unmaintained=>"fail",
+              :unmaintained=>"warn",
               :unlicensed=>"fail",
               :outdated=>"warn",
               :vulnerable=>"fail",
